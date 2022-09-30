@@ -33,7 +33,7 @@
         {:then posts}
             {#each posts as post}
                 <PostT id={post.id} date={post.attributes.date} description={post.attributes.description} title={post.attributes.title} 
-                author={post.attributes.Author} image={post.attributes.photo.data.attributes.url}/>
+                author={post.attributes.author.data.attributes.username} image={post.attributes.photo.data.attributes.url}/>
             {/each}
         {/await}
     </div>
