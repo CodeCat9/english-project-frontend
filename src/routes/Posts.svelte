@@ -1,15 +1,42 @@
+<script>
+    import NavBar from "../components/NavBar.svelte";
+    import axios from 'axios'
+    import PostT from '../components/PostT.svelte'
+    import { onMount } from 'svelte'
 
+    let posts = []
+
+    let url = "http://localhost:1337/api/posts?populate=*"
+
+    /*async function getPosts(url){
+        const res = await fetch(url)
+        const data = res
+        console.log(data)
+        return data;
+    }*/
+
+
+    onMount(() =>{
+        axios.get(url).then(res =>{
+            posts = res.data.data
+            console.log(posts)
+        })
+    })
+
+</script>
 
 <div class="page">
-     <!--<NavBar/>
+    <NavBar/>
     <div class="container">
-        {#each posts as post }
-            <script>
-                console.log(post)
-            </script>
-            <PostT id={post.id} image={post.attributes.photo.data.attributes.url} description={post.attributes.description} title={post.attributes.title} author={post.attributes.author.data.attributes.username} date={post.attributes.date} />
-        {/each}
-    </div>-->
+        {#await posts}
+            <p>Loading...</p>
+        {:then posts}
+            {#each posts as post}
+                <PostT id={post.id} date={post.attributes.date} description={post.attributes.description} title={post.attributes.title} 
+                author={post.attributes.Author} image={post.attributes.photo.data.attributes.url}/>
+            {/each}
+        {/await}
+    </div>
 </div>
 
 <style>
