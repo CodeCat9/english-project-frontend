@@ -7,7 +7,7 @@
 
     let posts = []
 
-    let url = database_url + "/api/posts?populate=*"
+    let url = database_url.concat("/api/posts?populate=*")
 
     /*async function getPosts(url){
         const res = await fetch(url)
