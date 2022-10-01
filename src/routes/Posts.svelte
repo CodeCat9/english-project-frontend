@@ -9,6 +9,8 @@
 
     let url = database_url.concat("/api/posts?populate=*")
 
+    console.log(url)
+
     /*async function getPosts(url){
         const res = await fetch(url)
         const data = res
