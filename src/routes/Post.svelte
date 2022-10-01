@@ -33,7 +33,8 @@
         color: #cccdcf;
         width: 80vw;
         padding: 1%;
-        margin: 10%;
+        margin-top: 10vh;
+        margin-right: 10vw;
         align-items: center;
         text-align: left;
         word-wrap: break-word;
