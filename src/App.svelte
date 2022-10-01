@@ -6,6 +6,8 @@
     import Post from './routes/Post.svelte';
     import Posts from './routes/Posts.svelte';
 
+	export let database_url = "https://english-project-364018.ey.r.appspot.com/"
+
 	let routes = {
 		'/': Home,
 		'/auth': Auth,

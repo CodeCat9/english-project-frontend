@@ -1,17 +1,22 @@
 
 <script>
+
+    import database_url from '../App.svelte'
+
     export let title;
     export let author;
     export let date;
     export let image;
     export let description;
     export let id;
+
+
 </script>
 
 
 <div class="container">
     <a href="#/post/{id}">
-        <img src="http://localhost:1337{image}" alt="">
+        <img src="{database_url}{image}" alt="">
         <div class="text">
             <h3 class="title">{title}</h3>
             <p class="description">{description}</p>

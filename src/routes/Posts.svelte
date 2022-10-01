@@ -3,10 +3,11 @@
     import axios from 'axios'
     import PostT from '../components/PostT.svelte'
     import { onMount } from 'svelte'
+    import database_url from '../App.svelte'
 
     let posts = []
 
-    let url = "http://localhost:1337/api/posts?populate=*"
+    let url = database_url + "/api/posts?populate=*"
 
     /*async function getPosts(url){
         const res = await fetch(url)
