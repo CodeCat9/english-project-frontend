@@ -48,7 +48,7 @@
         grid-template-columns: 25vw 25vw 25vw;
         row-gap: 10vh;
         padding-left: 7vw;
-        padding-top: 10vh;
+        padding-top: 15vh;
         width: 85vw;
         min-height: 50vh;
 

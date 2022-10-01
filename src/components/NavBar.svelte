@@ -44,5 +44,7 @@
         width: 100vw;
         height: 10vh;
         background-color: #0F3460;
+        position: fixed;
+        top: 0;
     }
 </style>
