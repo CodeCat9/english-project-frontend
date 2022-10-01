@@ -28,6 +28,7 @@
 
 <style>
     .container{
+        border-radius: 3vw;
         background-color: #533483;
         color: #cccdcf;
         width: 80vw;
