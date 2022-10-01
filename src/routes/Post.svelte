@@ -34,7 +34,7 @@
         max-width: 82vw;
         width: 82vw;
         padding: 1vw;
-        margin-top: 10vh;
+        margin-top: 15vh;
         margin-right: 9%;
         margin-left: 9%;
         align-items: center;
