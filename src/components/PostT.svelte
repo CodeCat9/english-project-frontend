@@ -1,8 +1,5 @@
 
 <script>
-
-    import database_url from '../App.svelte'
-
     export let title;
     export let author;
     export let date;
@@ -34,13 +31,6 @@
     a{
         text-decoration: none;
         color: #cccdcf;
-    }
-    .top{
-        display: flex;
-        align-items: left;
-        max-width: 23vw;
-        max-height: 13vh;
-        flex-direction: column;
     }
     .bottom{
         max-width: 23vw;
