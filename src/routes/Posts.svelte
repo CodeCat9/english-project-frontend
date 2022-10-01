@@ -3,6 +3,8 @@
     import axios from 'axios'
     import PostT from '../components/PostT.svelte'
     import { onMount } from 'svelte'
+    
+
     //import database_url from '../App.svelte'
 
     let posts = []

@@ -2,6 +2,7 @@
     import NavBar from "../components/NavBar.svelte";
     import {onMount} from 'svelte'
     import SvelteMarkdown from 'svelte-markdown'
+    import {fade, scale} from 'svelte/transition'
 
     let id = window.location.hash;
     id = id.split('/')[2];
@@ -19,7 +20,7 @@
 </script>
 
 <NavBar/>
-<div class="container">
+<div class="container" in:scale out:fade>
     <h1>{title}</h1>
     <div>{description}</div>
     <SvelteMarkdown source={content}/>

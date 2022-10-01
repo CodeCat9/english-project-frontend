@@ -7,11 +7,12 @@
     export let description;
     export let id;
 
+    import {fade, scale} from 'svelte/transition'
 
 </script>
 
 
-<div class="container">
+<div class="container" in:scale out:fade>
     <a href="#/post/{id}">
         <img src="{image}" alt="">
         <div class="text">
