@@ -10,15 +10,13 @@
     export let description;
     export let id;
 
-    console.log(image)
-
 
 </script>
 
 
 <div class="container">
     <a href="#/post/{id}">
-        <img src="https://english-project-364018.ey.r.appspot.com{image}" alt="">
+        <img src="{image}" alt="">
         <div class="text">
             <h3 class="title">{title}</h3>
             <p class="description">{description}</p>
