@@ -7,7 +7,7 @@
 
     let posts = []
 
-    let url = database_url.concat("/api/posts?populate=*")
+    let url = database_url.concat("")
 
     console.log(url)
 
@@ -20,7 +20,7 @@
 
 
     onMount(() =>{
-        axios.get(url).then(res =>{
+        axios.get("https://english-project-364018.ey.r.appspot.com/api/posts?populate=*").then(res =>{
             posts = res.data.data
             console.log(posts)
         })
