@@ -10,6 +10,8 @@
     export let description;
     export let id;
 
+    console.log(image)
+
 
 </script>
 
