@@ -31,11 +31,12 @@
         border-radius: 3vw;
         background-color: #533483;
         color: #cccdcf;
-        width: 80vw;
-        padding: 1%;
+        max-width: 82vw;
+        width: 82vw;
+        padding: 1vw;
         margin-top: 10vh;
-        margin-right: 10vw;
-        margin-left: 10vw;
+        margin-right: 9%;
+        margin-left: 9%;
         align-items: center;
         text-align: left;
         word-wrap: break-word;
