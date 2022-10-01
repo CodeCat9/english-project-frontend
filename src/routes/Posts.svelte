@@ -3,13 +3,9 @@
     import axios from 'axios'
     import PostT from '../components/PostT.svelte'
     import { onMount } from 'svelte'
-    import database_url from '../App.svelte'
+    //import database_url from '../App.svelte'
 
     let posts = []
-
-    let url = database_url.concat("")
-
-    console.log(url)
 
     /*async function getPosts(url){
         const res = await fetch(url)
