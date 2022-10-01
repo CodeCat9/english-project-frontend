@@ -35,6 +35,7 @@
         padding: 1%;
         margin-top: 10vh;
         margin-right: 10vw;
+        margin-left: 10vw;
         align-items: center;
         text-align: left;
         word-wrap: break-word;
