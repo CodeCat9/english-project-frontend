@@ -31,6 +31,7 @@
 
     .parent{
         position: relative;
+        margin-top: 10vh;
     }
 
     .heading{
