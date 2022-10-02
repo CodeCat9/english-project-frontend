@@ -1,5 +1,11 @@
 <script>
+  import Router, { push } from "svelte-spa-router";
+import { get } from "svelte/store";
 
+  function logout(){
+    localStorage.removeItem('token')
+  }
+  //on:click={logout}
 </script>
 
 <div class='wrapper'>
@@ -8,7 +14,12 @@
             <li><a href="#/">Home</a></li>
             <li><a href="#/about">About</a></li>
             <li><a href="#/posts">Posts</a></li>
-            <li><a href="#/auth">Login/Register</a></li>
+            {#if localStorage.getItem('token')}
+                <li><a href="#/auth" on:click={logout}>Logout</a></li>
+            {:else}
+                <li><a href="#/auth">Login/Register</a></li>
+            {/if}
+            
         </ul>
         
 
@@ -29,6 +40,16 @@
     li{
         margin-right: 5vw;
         
+    }
+
+    button{
+        background-color: #0F3460;
+        border-style: none;
+        color: #cccdcf;
+        width: 25px;
+        height: 3vh;
+        margin-right: 1vw;
+        margin-bottom: 5vh;
     }
 
     .container{

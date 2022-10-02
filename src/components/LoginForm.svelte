@@ -1,5 +1,6 @@
 <script>
   import axios from 'axios';
+  import { push } from 'svelte-spa-router';
 
   let email = "";
   let password = "";
@@ -10,7 +11,8 @@
       identifier: email,
       password: password
     }).then(response => {
-      console.log(response)
+      localStorage.setItem('token', response.data.jwt) 
+      push('#/')
     }).catch(error => {
       if(error.response){
         console.log(error)
@@ -25,14 +27,14 @@
 
 <div>
   <form on:submit|preventDefault={submitLogin}>
-    <label for="email">Email</label>
-    <input type="text" id="email" name="firstname" placeholder="Email" bind:value={email} />
+    <label for="emailLogin">Email</label>
+    <input type="text" id="emailLogin" name="firstname" placeholder="Email" bind:value={email} />
 
-    <label for="password">Password</label>
+    <label for="passwordLogin">Password</label>
     <input 
       bind:value={password}
       type="password"
-      id="password"
+      id="passwordLogin"
       name="password"
       placeholder="Password"
     />

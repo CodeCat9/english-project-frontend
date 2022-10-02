@@ -1,5 +1,6 @@
 <script>
   import axios from "axios";
+  import { push } from "svelte-spa-router";
 
 
 
@@ -44,13 +45,12 @@
       password: password,
       email: email
     }).then(res => {
-      console.log(res.data.jwt)
+      localStorage.setItem('token', res.data.jwt)
+      push('/')
     }).catch((error) =>{
       if(error.response){
-        //console.log(error.response.data)
         err = error.response.data.error.details.errors[0].message
         err = err.charAt(0).toUpperCase() + err.slice(1) + "!"
-        console.log(error)
       }
     })
   }
@@ -90,7 +90,6 @@
         <section class="error">{err}</section>
       {/if}
       
-
       <input type="submit" value="Register" />
     </form>
   </div>
