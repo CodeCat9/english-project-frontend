@@ -1,7 +1,7 @@
 <script>
   import axios from "axios";
   import { push } from "svelte-spa-router";
-
+  import {fade, scale} from 'svelte/transition'
 
 
   let username = "";
@@ -58,7 +58,7 @@
 </script>
 
 
-<div>
+<div in:scale out:fade>
     <form on:submit|preventDefault={submitRegister}>
         <label for="username">Username</label>
       <input bind:value={username} type="text" id="username" name="username" placeholder="Username" />

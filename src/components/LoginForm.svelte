@@ -1,6 +1,7 @@
 <script>
   import axios from 'axios';
   import { push } from 'svelte-spa-router';
+  import {scale, fade} from 'svelte/transition'
 
   let email = "";
   let password = "";
@@ -25,7 +26,7 @@
 </script>
 
 
-<div>
+<div in:scale out:fade>
   <form on:submit|preventDefault={submitLogin}>
     <label for="emailLogin">Email</label>
     <input type="text" id="emailLogin" name="firstname" placeholder="Email" bind:value={email} />

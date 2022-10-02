@@ -1,10 +1,11 @@
 <script>
     import NavBar from "../components/NavBar.svelte";
+    import {fade, scale} from 'svelte/transition'
 </script>
 
 <div>
     <NavBar/>
-    <div class="parent">
+    <div class="parent" in:scale out:fade>
         <div class="child image">
             <img src="https://images7.alphacoders.com/116/thumb-1920-1163218.png" alt="" class="feynman">
         </div>
