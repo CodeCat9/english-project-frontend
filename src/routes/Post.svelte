@@ -25,8 +25,9 @@
         id +
         "?populate=*"
     ).then((x) => x.json());
-    let decoded = jwt_decode(localStorage.getItem("token"));
-    axios
+    if(localStorage.getItem('token')){
+      let decoded = jwt_decode(localStorage.getItem("token"));
+      axios
       .get(
         "https://english-project-364018.ey.r.appspot.com/api/users/" +
           decoded.id
@@ -34,10 +35,12 @@
       .then((response) => {
         formUsername = response.data.username;
       });
+    }
     comments = post.data.attributes.comments.data;
     content = post.data.attributes.content;
     title = post.data.attributes.title;
     description = post.data.attributes.description;
+    
   });
 
   function comment() {
