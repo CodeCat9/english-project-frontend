@@ -46,7 +46,6 @@
     border-radius: 3vw;
     background-color: #533483;
     color: #cccdcf;
-    max-width: 82vw;
     width: 82vw;
     padding: 4vw;
     margin-top: 15vh;

@@ -59,7 +59,7 @@
 <div class="comment">
   <h3 class="user">{username}</h3>
   <p class="content">{content}</p>
-  <p class="date">{timeBetween}</p>
+  <p class="date">{timeBetween} Ago</p>
 </div>
 
 <style>
@@ -70,7 +70,7 @@
     padding: 3vw;
     background-color: #222d4d;
     color: #dedede;
-    margin-left: 20vw;
+    margin-left: 17vw;
     position: relative;
     word-wrap: break-word;
     text-align: left;
@@ -79,7 +79,7 @@
     margin-left: 3vw;
   }
   .date {
-    margin-left: 30vw;
+    margin-left: 50vw;
   }
   .content{
     margin-left: 5vw;
