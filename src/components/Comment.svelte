@@ -52,6 +52,15 @@
         }
         return minutes + " Minutes";
     }
+    if(seconds > 0){
+      if(seconds == 1){
+            return seconds + " Second";
+        }
+        return seconds + " Seconds";
+    }
+    else{
+      return "A Few Seconds"
+    }
   }
 
 </script>
@@ -67,6 +76,7 @@
     width: 60vw;
     min-height: 100%;
     border-radius: 3vw;
+    margin-bottom: 5vh;
     padding: 3vw;
     background-color: #222d4d;
     color: #dedede;

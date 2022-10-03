@@ -3,7 +3,9 @@
   import { onMount } from "svelte";
   import SvelteMarkdown from "svelte-markdown";
   import { fade, scale } from "svelte/transition";
-  import Comment from '../components/Comment.svelte'
+  import Comment from "../components/Comment.svelte";
+  import axios from "axios";
+  import jwt_decode from "jwt-decode";
 
   let id = window.location.hash;
   id = id.split("/")[2];
@@ -11,16 +13,62 @@
   let content;
   let title;
   let description;
-  let comments = []
+  let comments = [];
+
+  let formUsername;
+  let formContent;
+  let formDate;
+
   onMount(async () => {
     post = await fetch(
-      "https://english-project-364018.ey.r.appspot.com/api/posts/" + id + "?populate=*"
+      "https://english-project-364018.ey.r.appspot.com/api/posts/" +
+        id +
+        "?populate=*"
     ).then((x) => x.json());
-    comments = post.data.attributes.comments.data
+    let decoded = jwt_decode(localStorage.getItem("token"));
+    axios
+      .get(
+        "https://english-project-364018.ey.r.appspot.com/api/users/" +
+          decoded.id
+      )
+      .then((response) => {
+        formUsername = response.data.username;
+      });
+    comments = post.data.attributes.comments.data;
     content = post.data.attributes.content;
     title = post.data.attributes.title;
     description = post.data.attributes.description;
   });
+
+  function comment() {
+    if (formContent) {
+      formDate = new Date(Date.now()).toISOString();
+      comments = [
+        ...comments,
+        {
+          attributes: {
+            content: formContent,
+            username: formUsername,
+            date: formDate,
+          },
+        },
+      ];
+      axios.post(
+        "https://english-project-364018.ey.r.appspot.com/api/comments",
+        {
+          headers: {
+            Authorization: "Bearer" + localStorage.getItem("token"),
+          },
+          data: {
+            content: formContent,
+            username: formUsername,
+            date: formDate,
+            post: id
+          },
+        }
+      );
+    }
+  }
 </script>
 
 <div class="page">
@@ -31,17 +79,54 @@
     <SvelteMarkdown source={content} />
   </div>
   {#if localStorage.getItem("token")}
-    <p>You are logged in</p>
+    <div class="commentForm">
+      <textarea
+        bind:value={formContent}
+        name="comment"
+        id="comment"
+        placeholder="Enter your comment..."
+        cols="30"
+        rows="10"
+      />
+      <button class="submitButton" on:click={comment}>Comment</button>
+    </div>
   {:else}
     <p>Log in to make comment!</p>
   {/if}
   {#each comments as comment}
-    <Comment username={comment.attributes.username} content={comment.attributes.content} date={comment.attributes.date} />
+    <Comment
+      username={comment.attributes.username}
+      content={comment.attributes.content}
+      date={comment.attributes.date}
+    />
   {/each}
-  
 </div>
 
 <style>
+  ::placeholder {
+    color: #cccdcf;
+  }
+  .submitButton {
+    width: 10vw;
+    height: 10vh;
+    background-color: #008080;
+    color: #cccdcf;
+    margin-left: 40vw;
+  }
+  textarea {
+    border-radius: 3vw;
+    padding: 3vw;
+    color: #cccdcf;
+    background-color: #222d4d;
+    width: 50vw;
+    height: 30vh;
+  }
+  .commentForm {
+    margin-top: 5vh;
+    width: 60vw;
+    height: 50vh;
+    margin-left: 20vw;
+  }
   .container {
     border-radius: 3vw;
     background-color: #533483;
