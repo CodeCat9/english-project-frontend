@@ -1,7 +1,4 @@
 <script>
-  import Router, { push } from "svelte-spa-router";
-import { get } from "svelte/store";
-
   function logout(){
     localStorage.removeItem('token')
   }

@@ -3,19 +3,8 @@
     import axios from 'axios'
     import PostT from '../components/PostT.svelte'
     import { onMount } from 'svelte'
-    
-
-    //import database_url from '../App.svelte'
 
     let posts = []
-
-    /*async function getPosts(url){
-        const res = await fetch(url)
-        const data = res
-        console.log(data)
-        return data;
-    }*/
-
 
     onMount(() =>{
         axios.get("https://english-project-364018.ey.r.appspot.com/api/posts?populate=*").then(res =>{
